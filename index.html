@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etherhiding Demo</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; display: grid; place-items: center; min-height: 100vh; background-color: #f0f2f5; text-align: center; direction: rtl; }
+        .container { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        button { background-color: #28a745; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; }
+        button:hover { background-color: #218838; }
+        #message { margin-top: 20px; font-size: 1.2rem; font-weight: bold; color: #333; min-height: 30px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Etherhiding Demo</h1>
+        <p>Click For read message from blockchain</p>
+        
+        <button id="readButton">Read Message</button>
+        
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const contractAddress = "YOUR_CONTRACT_ADDRESS_HERE";
+        const infuraUrl = "YOUR_INFURA_RPC_URL_HERE";
+
+        const abi = [
+ "YOUR_ABI_HERE"
+];
+
+        const readButton = document.getElementById("readButton");
+        const messageArea = document.getElementById("message");
+
+        async function readMessageFromBlockchain() {
+            try {
+                messageArea.innerText = "Connectiong to BlockChain ...";
+                const provider = new ethers.providers.JsonRpcProvider(infuraUrl);
+                const contract = new ethers.Contract(contractAddress, abi, provider);
+
+                messageArea.innerText = "Reading Message ...";
+                const data = await contract.getMessaage();
+                messageArea.innerText = `Message: "${data}"`;
+
+            } catch (error) {
+                console.error(error);
+                messageArea.innerText = "Error: " + (error.message || error);
+            }
+        }
+
+        readButton.addEventListener("click", readMessageFromBlockchain);
+    </script>
+
+</body>
+</html>

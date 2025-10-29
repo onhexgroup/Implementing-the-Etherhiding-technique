@@ -15,7 +15,7 @@ You can follow the step-by-step implementation and additional notes in the accom
 
 I’ve also uploaded a video on YouTube where you can watch the full implementation process step by step.
 
-🎥 [Watch the video on YouTube](https://www.youtube.com/watch?v=XXXXXXX)
+🎥 [Watch the video on YouTube](https://youtu.be/QrZuMiXOAV0)
 
 ## Disclaimer
 This tutorial is provided exclusively for educational purposes, cybersecurity research, and to raise technical awareness. Any misuse of the information contained here is solely the responsibility of the end user.
